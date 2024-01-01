@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: black; color: red"></body>
+  <script>
+    //create a new element
+    const div = document.createElement("div");
+    console.log(div);
+    //add attributes to the new element
+    div.className = "Main";
+    div.id = Math.round(Math.random() * 10);
+
+    div.style.backgroundColor = "red";
+
+    // div.innerText = " this is a new div";
+    //creating a new text node for the div and adding it to the div element
+    //1st way =  div.setAttribute("title", "New Div");
+
+    //2nd way :
+    const text = document.createTextNode("this is a new div");
+    div.appendChild(text);
+
+    document.body.appendChild(div);
+
+    //create a new child and adding it to the html
+    const newChild = (Type, text) => {
+      const child = document.createElement(`${Type}`);
+      let t = document.createTextNode(`${text}`);
+      child.appendChild(t);
+      document.body.appendChild(child);
+    };
+
+    newChild("h1", "child created");
+    let newDiv = document.querySelector(".Main");
+    console.log(newDiv.nextSibling);
+  </script>
+
+  <!-- 
+   - The main difference between innerHTML and appendChild in JavaScript is that innerHTML replaces the content of an element with the specified HTML, while appendChild() adds a new node to the end of the child nodes of the specified element.
+
+-   innerHTML is a property of the DOM that allows you to get or set the HTML content of an element. It is a convenient way to add or replace content in an element, but it can be slow and can also cause problems with event listeners.
+
+-appendChild() is a method of the DOM that allows you to add a child node to the end of the child nodes of the specified element. It is a more efficient way to add content to an element than innerHTML, and it does not cause problems with event listeners.
+   -->
+</html>
