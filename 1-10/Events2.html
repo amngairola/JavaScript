@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ascync await</title>
+  </head>
+  <body>
+    <h1>woriking</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    //setTimeOut
+
+    /*  1st way 
+    setTimeout(() => {
+      console.log("working");
+    }, 2000); */
+
+    //2nd way
+
+    const Work = () => {
+      console.log("working");
+    };
+
+    // creating a function
+    const changeText = () => {
+      document.querySelector("h1").innerHTML = "Inner HTML";
+    };
+    const change = setTimeout(changeText, 5000); //passing refrence of the function and passing time in millisecond
+
+    //stop setTimeout with a event
+    document.querySelector("button").addEventListener("click", () => {
+      clearTimeout(change); //passing refrence of the setTimeout to prevent it
+      console.log("stoped");
+    });
+  </script>
+</html>

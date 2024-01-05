@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ascync await</title>
+  </head>
+  <body>
+    <h1>Events in js</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    //setInterval
+
+    const event = (i) => {
+      console.log("workig...", i);
+    };
+    let id;
+    document.querySelector("#start").addEventListener("click", (e) => {
+      e.preventDefault();
+      id = setInterval(event, 1000, 1);
+    });
+
+    document.querySelector("#stop").addEventListener("click", (e) => {
+      e.preventDefault();
+      clearInterval(id);
+      console.log("stoped..");
+    });
+  </script>
+</html>

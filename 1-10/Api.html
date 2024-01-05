@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: #212121;
+      color: aliceblue;
+    }
+  </style>
+  <body>
+    <div class="card"></div>
+  </body>
+  <script>
+    const parent = document.querySelector(".card");
+    const url = "https://api.github.com/users/amngairola";
+    const xhr = new XMLHttpRequest(); //create a new http request object using new keyword
+    xhr.open("GET", url); //open method is used to make the request
+    xhr.onreadystatechange = () => {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(xhr.responseText);
+        //parsing the string data into a JSON object
+        console.log(typeof data);
+        //get the data from JSON object
+        createChild("img", data.avatar_url);
+        createChild("h3", data.name);
+        createChild("h4", data.location);
+      }
+    };
+
+    const createChild = (type, data) => {
+      const child = document.createElement(`${type}`);
+      if (type === "img") {
+        child.setAttribute("src", `${data}`);
+      } else {
+        child.innerHTML = `${data}`;
+      }
+      parent.appendChild(child);
+    };
+
+    xhr.send();
+  </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <nav>
+      <a href="/" aria-current="page">Home</a>
+    </nav>
+
+    <h1>Start should change the Background color every second</h1>
+    <div class="parent">
+      <button class="btn" id="start">Start</button>
+      <button class="btn" id="stop">Stop</button>
+    </div>
+    <script>
+      const colors = [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "orange",
+        "purple",
+        "black",
+        "white",
+        "pink",
+        "brown",
+      ];
+
+      // const start = document.querySelector('#start');
+      // const stop = document.querySelector('#stop');
+      const body = document.querySelector("body");
+      const parent = document.querySelector(".parent");
+
+      const s = () => {
+        const i = Math.floor(Math.random() * 10);
+        body.style.backgroundColor = colors[i];
+      };
+      let id;
+
+      parent.addEventListener(
+        "click",
+        (e) => {
+          3;
+          e.preventDefault();
+          console.log(e.target.id);
+
+          if (e.target.id === "start") {
+            id = setInterval(s, 1000);
+          } else if (e.target.id === "stop") {
+            clearInterval(id);
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
