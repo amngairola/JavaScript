@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="orange">button 1</button>
+    <button id="red">button2</button>
+  </body>
+  <script>
+    /*  function outer() {
+      let uname = "aman";
+      function inner() {
+        console.log(uname);
+      }
+    }
+    outer();*/
+
+    /*
+    document;
+        .getElementById("orange")
+      .addEventListener(
+        "click",
+        () => (document.body.style.backgroundColor = "blue")
+      );
+    document
+      .getElementById("red")
+      .addEventListener(
+        "click",
+        () => (document.body.style.backgroundColor = "red")
+      ); */
+
+    //real world example of clouser and lexical scoping
+    function clickhandler(color) {
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+
+    document.getElementById("orange").onclick = clickhandler("red");
+  </script>
+</html>

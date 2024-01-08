@@ -20,7 +20,7 @@ createUser.prototype.print = function () {
 };
 
 // const u1 = createUser("User1", 10);
-//TypeError: Cannot read properties of undefined (reading 'print')  , here we need to tell u1 that you have explicit properties (increment , print) ,which we can do with the new keyword
+//u1.print();  -----TypeError: Cannot read properties of undefined (reading 'print')  , here we need to tell u1 that you have explicit properties (increment , print) ,which we can do with the new keyword
 
 const u1 = new createUser("User1", 10);
 const u2 = createUser("User2", 20);
