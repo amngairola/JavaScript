@@ -12,4 +12,4 @@ console.log(inst);
 
 //object destructting
 const navBar = ({ company }) => {};
-navBar((company = "aman"));
+navBar({ company: "aman" });
